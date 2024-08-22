@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+    <div class="wrapper">
+    <!-- BEGIN body -->
+    <div id="body">
+        <!-- BEGIN content -->
+        <div id="content">
+            <!-- begin post -->
+            <div class="posts">
+                <!-- begin post -->
+                {% for arct in articles %}
+                    <div class="post">
+                        <p class="date">{{ arct.published_at }}</p>
+                        <h6><a href="{% url 'article:article-detail' arct.id %}">{{ arct.title|truncatewords:6 }}</a></h6>
+                        <p>{{ arct.body|safe|truncatewords:20}}</p>
+                        <div class="details"><a href="{% url 'article:article-detail' arct.id %}">READ MORE</a> <a href="{% url 'article:article-detail' arct.id %}">{{ arct.comments.count }}
+                            Comments</a></div>
+                    </div>
+                {% endfor %}
+            <!-- end post -->
+        </div>
+        </div>
+        {% include 'sidebar.html' %}
+        
+    </div>
+    <!-- END body -->
+    <div class="break"></div>
+</div>
+{% endblock %}

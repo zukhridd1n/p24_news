@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+    <!-- BEGIN body -->
+    <div id="body">
+        <!-- BEGIN content -->
+        <div id="content">
+            <!-- begin recent post -->
+            <div class="recent post">
+                <h2 class="title">Recent News</h2>
+                <h2><a href="{% url 'article:article-detail' article.id %}">{{ article.title }}</a></h2>
+                <p>{{ article.body|safe|truncatewords:60}}</p>
+            </div>
+            <!-- end recent post -->
+            <div class="posts">
+                <!-- begin post -->
+                {% for arct in articles %}
+                    <div class="post">
+                        <p class="date">{{ arct.published_at }}</p>
+                        <h6><a href="{% url 'article:article-detail' arct.id %}">{{ arct.title|truncatewords:6 }}</a></h6>
+                        <p>{{ arct.body|safe|truncatewords:20 }}</p>
+                        <div class="details"><a href="{% url 'article:article-detail' arct.id %}">READ MORE</a> <a href="{% url 'article:article-detail' arct.id %}">{{ arct.comments.count }}
+                            Comments</a></div>
+                    </div>
+                {% endfor %}
+
+                <div class="break"></div>
+            </div>
+        </div>
+        <!-- END content -->
+        <!-- BEGIN sidebar -->
+       {% include 'sidebar.html' %}
+    </div>
+    <!-- END body -->
+    <div class="break"></div>
+</div>
+{% endblock %}

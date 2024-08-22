@@ -1,0 +1,140 @@
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+<div id="sidebar">
+    <div class="row">
+        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <select class="form-control form-control-sm" id="exampleFormControlSelect1" name="language"
+                    onchange="this.form.submit();">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+    <div class="row">
+        <h5>Meta</h5>
+        <ul>
+            <li><a href="{% url 'account:login' %}">Login</a></li>
+            <li><a href="{% url 'account:subscribe' %}">Register</a></li>
+        </ul>
+        <!-- end meta -->
+
+    </div>
+
+    <!-- begin Advertisement -->
+    <div class="row">
+
+        <div class="ads">
+            <div class="col-12">
+                <a href="#"><img src="{% static 'images/ad125x125.jpg' %}" alt=""/></a>
+                <a href="#"><img src="{% static 'images/ad125x125.jpg' %}" alt=""/></a>
+            </div>
+            <a href="#"><img src="{% static 'images/ad125x125.jpg' %}" alt=""/></a>
+            <a href="#"><img src="{% static 'images/ad125x125.jpg' %}" alt=""/></a>
+        </div>
+    </div>
+    <!-- end Advertisement -->
+    <!-- begin subscribe -->
+    <div class="row">
+        <h5>
+            {% trans 'Subscribe Here' %}
+        </h5>
+        <form class="subscribe" method="post" action="{% url 'account:subscribe' %}">
+            {% csrf_token %}
+            <a href="{% url 'account:subscribe' %}">Subscribe via RSS Feed or</a>
+            <button type="submit">subcribe</button>
+        </form>
+
+    </div>
+    <!-- end subscribe -->
+    <div class="row">
+        <div class="row">
+            <h5>Popular Posts</h5>
+            <ul>
+                <li><a href="#">Make Money Online Creating Websites</a></li>
+                <li><a href="#">Top 100 Internet Marketing Tips</a></li>
+                <li><a href="#">Tutorial: How to add Videos in your Post</a></li>
+                <li><a href="#">Sample Post Unordered List</a></li>
+                <li><a href="#">Sample Post Blockquote</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+    <!-- begin popular posts -->
+    <!-- end popular posts -->
+    <div class="row">
+        <h5>Tags</h5>
+        <ul>
+            {% for tag in tags %}
+                <li><a href="{% url 'article:tag' pk=tag.id%}">{{ tag.name }}</a></li>
+            {% endfor %}
+
+        </ul>
+
+        <div class="tags"></div>
+        <!-- end tags -->
+        <!-- begin tags -->
+    </div>
+    <div class="row">
+        <!-- BEGIN left -->
+        <div class="l">
+            <!-- begin categories -->
+            <h5>Categories</h5>
+            <ul style="padding: 0; margin: 0">
+                {% for category in categories %}
+                    <li><a href="{% url 'article:category' category.id %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <!-- end categories -->
+        </div>
+        <div class="r">
+            <!-- begin archives -->
+            <h5>Archives</h5>
+            <ul style="padding: 0; margin: 0">
+                <li><a href="#">August 2008</a></li>
+                <li><a href="#">July 2008</a></li>
+                <li><a href="#">June 2008</a></li>
+                <li><a href="#">May 2008</a></li>
+                <li><a href="#">April 2008</a></li>
+                <li><a href="#">March 2008</a></li>
+            </ul>
+            <!-- end archives -->
+
+        </div>
+
+    </div>            <!-- begin pages -->
+    <div class="row">
+        <div class="l">
+            <h5>Pages</h5>
+            <ul style="padding: 0; margin: 0">
+                <li><a href="{% url 'article:home'%}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Archives</a></li>
+                <li><a href="#">Links</a></li>
+                <li><a href="{% url 'account:feed' %}">Contact</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+        <div class="r">
+            <h5>Blogroll</h5>
+            <ul style="padding: 0; margin: 0">
+                <li><a href="#">Carlos</a></li>
+                <li><a href="#">Digital Point Forum</a></li>
+                <li><a href="#">Eric's Photo Gallery</a></li>
+                <li><a href="#">Fashion Trends</a></li>
+                <li><a href="#">Google Scoreboard</a></li>
+                <li><a href="#">Marketing Forum</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <!-- end pages -->
+</div>
+

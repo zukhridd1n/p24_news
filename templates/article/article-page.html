@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} ARTICLE DETAIL {% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+    <div id="body">
+        <div id="content">
+        <div class="recent post">
+            <p><a><h1>{{ article.title}} </h1></a></p>
+            <p>{{ article.body|safe }}</p>
+            <p>
+                Comments:<br>
+            <p>-------------------------------------------------------------------------------------------------------------------------</p>
+                    {% for comment in article.comments.all %}
+                        Users:
+                        {{ comment.owner }}<br>
+                        {{ comment.body|safe }}
+                    {% endfor %}
+            </p>
+        </div>
+        </div>
+    </div>
+       {% include 'sidebar.html' %}
+    <div class="break"></div>
+</div>
+{% endblock %}

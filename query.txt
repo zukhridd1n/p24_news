@@ -1,0 +1,37 @@
+## 1
+## Article modelidani likes boyicha saraladik va eng like kop bolgan articledi category , ownerini chiqardik
+
+from apps.article.models import Article
+a = Article.objects.order_by('-likes')
+b = a.first()
+b.category
+b.owner
+
+
+## 2
+##  id = 1 bolgan feed ni yozgan accountni rolini topish
+
+from apps.account.model import Feed
+b = Feed.objects.get(id=1)
+a = b.account
+a.role
+
+## 3
+## feed va blogi bolgan userlarni saralab olish
+from apps.account.model import Feed, Blog
+feeds = Feed.objects.all()
+blogs = Blog.objects.all()
+users = []
+{% for feed in feeds%}
+    {% for blog in blogs%}
+        {% if feed.account == blog.owner and feed.account is not users%}
+            users.appaend(feed.user)
+
+
+## 4
+##  Ariclega yozilgan birinchi commentni ownerini olib beradi
+from apps.article.models import Article
+a = Article.objects.get(id=2)
+b = a.comments
+b.first().owner
+
