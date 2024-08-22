@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-22 13:38+0500\n"
+"PO-Revision-Date: 2024-08-22 13:23+0500\n"
+"Last-Translator:   <zuxriddin@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: apps/article/models.py:24
+#, fuzzy
+msgid "Title"
+msgstr "Sarlavha"
+
+#: apps/article/models.py:25
+msgid "SLG"
+msgstr "SLG"
+
+#: apps/article/models.py:26
+msgid "Body"
+msgstr "Asosiy"
+
+#: apps/article/models.py:27
+msgid "published"
+msgstr "Yaratilgan Vaqt"
+
+#: apps/article/models.py:28
+msgid "Status"
+msgstr "Statusi"
+
+#: apps/article/models.py:29
+msgid "Category"
+msgstr "Kategory"
+
+#: apps/article/models.py:31
+msgid "Likes"
+msgstr "LIke"
+
+#: apps/article/models.py:32
+msgid "Owner"
+msgstr "Yaratuvchisi"
+
+#: apps/article/models.py:34
+msgid "Is Active"
+msgstr "Xolati"
+
+#: apps/article/models.py:35
+msgid "Tags"
+msgstr "Tag"
+
+#: config/settings.py:180
+#, fuzzy
+msgid "English"
+msgstr "English"
+
+#: config/settings.py:181
+msgid "Русский"
+msgstr "Ruscha"
+
+#: config/settings.py:182
+msgid "O'zbekcha"
+msgstr "Uzbek"
+
+#: templates/sidebar.html:46
+msgid "Subscribe Here"
+msgstr "Obuna bo`ling"
